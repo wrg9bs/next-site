@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import React, { useEffect, useRef, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { init } from 'ityped'
 import { Container } from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
@@ -16,23 +16,7 @@ const Home = () =>  {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
-  const textRef = useRef();
-  useEffect(() => {
-    init(textRef.current, {
-      showCursor: true,
-      typeSpeed: 100,
-      backDelay: 2000,
-      backSpeed: 60,
-      strings: ["I'm a Full Stack Developer", 'Problem Solver', 'Programming enthusiast'],
-    });
-    if (window.innerWidth > 769) {
-      setIsDesktop(true);
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-      setIsDesktop(false);
-    }
-  }, [])
+  
 
   return (
     <section id="hero" className="jumbotron">
@@ -41,7 +25,7 @@ const Home = () =>  {
         <h1 className="hero-title">
         {title || 'Hi, my name is'} <span className="text-color-main">{name || 'Bo-at'}</span>
           <br />
-          <span ref={textRef} />
+         
         </h1>
       </Fade>
 
